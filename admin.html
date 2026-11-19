@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quản trị thư mời | MV</title><link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="admin-page">
+  <header class="topbar">
+    <a class="brand" href="./"><span class="monogram">MV</span><span>MEKÔNG VINA <small>DIGITAL INVITATION</small></span></a>
+    <a class="admin-link" href="./">Xem trang chủ ↗</a>
+  </header>
+  <main class="admin-wrap">
+    <div class="page-heading"><div><div class="eyebrow">CONTROL PANEL</div><h1>Quản trị thư mời</h1><p>Tạo thư mời PDF và xuất bản đường link riêng.</p></div><div class="gold-seal">MV</div></div>
+
+    <section class="notice">
+      <b>Lưu ý về GitHub Pages</b>
+      <p>Trang quản trị này ghi file trực tiếp vào GitHub Repository bằng GitHub Token do bạn nhập. Token chỉ được giữ trong bộ nhớ trình duyệt trong phiên hiện tại, không được lưu vào mã nguồn. Không chia sẻ token cho người khác.</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><div><div class="eyebrow">01 · CONNECTION</div><h2>Kết nối GitHub</h2></div><span class="number">01</span></div>
+      <div class="form-grid">
+        <label>GitHub username / organization<input id="owner" placeholder="vd: mekongvina"></label>
+        <label>Tên repository<input id="repo" placeholder="vd: thu-moi"></label>
+        <label>Branch<input id="branch" value="main"></label>
+        <label>GitHub Token (fine-grained)<input id="token" type="password" autocomplete="off" placeholder="github_pat_..." /></label>
+      </div>
+      <p class="field-help">Tạo Fine-grained Personal Access Token, chọn đúng repository và cấp quyền <b>Contents: Read and write</b>. Không bật quyền rộng hơn mức cần thiết.</p>
+      <div class="actions"><button id="connect" class="button secondary">Kiểm tra kết nối</button><span id="connection-status" class="status"></span></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><div><div class="eyebrow">02 · NEW INVITATION</div><h2>Tạo thư mời mới</h2></div><span class="number">02</span></div>
+      <form id="invite-form">
+        <div class="form-grid">
+          <label class="wide">Tên sự kiện *<input id="title" required maxlength="120" placeholder="Hội nghị khách hàng MêKông Vina 2026"></label>
+          <label>Ngày / giờ<input id="date" placeholder="25/12/2026 · 17:00"></label>
+          <label>Địa điểm<input id="venue" placeholder="Tên địa điểm tổ chức"></label>
+          <label class="wide">Lời giới thiệu<textarea id="description" rows="2" placeholder="Trân trọng kính mời Quý khách..."></textarea></label>
+          <label class="upload wide"> <span class="upload-symbol">PDF</span><span><b>File PDF thư mời *</b><small>Tối đa khuyến nghị 20 MB</small><strong id="pdf-name">Chưa chọn file</strong></span><input id="pdf" type="file" accept="application/pdf,.pdf" required></label>
+          <label class="upload wide"><span class="upload-symbol music">♫</span><span><b>Nhạc nền (không bắt buộc)</b><small>MP3, M4A, OGG hoặc WAV · Khuyến nghị dưới 10 MB</small><strong id="audio-name">Chưa chọn file</strong></span><input id="audio" type="file" accept=".mp3,.m4a,.ogg,.wav,audio/*"></label>
+        </div>
+        <div class="progress-wrap" id="progress-wrap" hidden><div class="progress-bar"><span id="progress"></span></div><small id="progress-label">Đang tải lên...</small></div>
+        <button class="button gold full" type="submit" id="publish">Xuất bản thư mời</button>
+        <div id="result" class="result" hidden></div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><div><div class="eyebrow">03 · PUBLISHED</div><h2>Đường link thư mời</h2></div><span class="number">03</span></div>
+      <p class="field-help">Danh sách được tải từ thư mục <code>invitations/</code> trong repository. Sau khi xuất bản, GitHub Pages có thể mất 1–3 phút để cập nhật.</p>
+      <button id="refresh" class="button secondary">Tải danh sách thư mời</button>
+      <div id="invitation-list" class="invitation-list"><p class="muted">Kết nối GitHub rồi tải danh sách.</p></div>
+    </section>
+    <p class="footnote">MV DIGITAL INVITATION · OCEAN BLUE & GOLD</p>
+  </main>
+  <script src="assets/config.js"></script><script src="assets/admin.js"></script>
+</body></html>

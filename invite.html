@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="theme-color" content="#071b32">
+  <title>Thư mời | MêKông Vina</title>
+  <link rel="stylesheet" href="assets/viewer.css">
+</head>
+<body>
+  <header class="viewer-header">
+    <a class="viewer-brand" href="./"><span class="monogram">MV</span><span>MEKÔNG VINA</span></a>
+    <div class="toolbar"><button id="audio-toggle" disabled>♫ <span>Nhạc nền</span></button><button id="fullscreen">⛶ <span>Toàn màn hình</span></button></div>
+  </header>
+  <main class="viewer-main">
+    <section class="invite-title"><div class="eyebrow">YOU ARE CORDIALLY INVITED</div><h1 id="event-title">Thư mời</h1><p id="event-meta"></p><p id="event-description"></p></section>
+    <div class="stage"><div id="loading" class="loading">Đang tải thư mời...</div><div id="book" class="book"></div><div id="error" class="error" hidden>Không tìm thấy thư mời hoặc không thể tải PDF.</div></div>
+    <div class="controls"><button id="previous" aria-label="Trang trước">‹</button><span id="page-indicator"> </span><button id="following" aria-label="Trang sau">›</button></div>
+    <p class="hint">Dùng chuột hoặc vuốt để lật trang</p>
+  </main>
+  <audio id="background-audio" loop></audio>
+  <footer class="viewer-footer">A SPECIAL INVITATION <span>✦</span> MEKÔNG VINA</footer>
+  <script src="assets/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+  <script type="module" src="assets/viewer.js"></script>
+</body></html>
